@@ -1,4 +1,4 @@
-﻿name: iOS Build (IPA Artifact)
+name: iOS Build (IPA Artifact)
 
 on:
   workflow_dispatch:
