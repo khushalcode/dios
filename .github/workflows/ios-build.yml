@@ -20,6 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: flutter pub get
+        flutter config --no-enable-swift-package-manager
 
       - name: Install CocoaPods
         run: |
