@@ -63,6 +63,7 @@ jobs:
 
       # --- Build ---
       - name: Flutter build iOS (no codesign, archive handles signing)
+        flutter config --no-enable-swift-package-manager
         run: flutter build ios --release --no-codesign
 
       - name: Archive with Xcode
