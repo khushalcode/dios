@@ -43,6 +43,9 @@ jobs:
           KEYCHAIN_PASSWORD: ${{ secrets.KEYCHAIN_PASSWORD }}
         run: |
           echo "$IOS_P12_BASE64" | base64 --decode > certificate.p12
+          echo "DEBUG: file size and hash:"
+          ls -la certificate.p12
+          shasum -a 256 certificate.p12
           security import certificate.p12 -k build.keychain -P "$IOS_P12_PASSWORD" -T /usr/bin/codesign -T /usr/bin/security
           security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KEYCHAIN_PASSWORD" build.keychain
           rm certificate.p12
