@@ -26,6 +26,7 @@ jobs:
       - name: Install CocoaPods
         run: |
           cd ios
+          rm -rf Pods Podfile.lock
           pod install --repo-update
 
       # --- Signing setup ---
